@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Maxime Peterlin</title>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Major+Mono+Display">
+              <link rel="stylesheet"
+                    href="https://fonts.googleapis.com/css?family=VT323">
+        <link rel="icon"
+              href="https://rustacean.net/assets/rustacean-flat-happy.png">
+        <link rel="stylesheet"
+              href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="stars.css">
+
+        <style>
+            :root {
+                --blue: #2de2e6;
+                --pink: #f6019d;
+                --orange: #fd8a76;
+                --pinkblack: #94006a;
+                --black: #283149;
+                --white: #fff;
+
+                --main-bg: #18062e;
+                --main-bg-rgba: rgba(24, 6, 46, 0.9);
+                --neon: #2de2e6;
+                --title1: #fd8a76;
+                --title2: #f9c768;
+                --background1: #18062e;
+                --background2: #1c0646;
+                --background3: #320f53;
+                --background4: #9d156f;
+                --background5: #f35298;
+                --background6: #fd8a76;
+                --background7: #f9c768;
+                --text: #fff;
+                /* --text: #f3e8cb; */
+                
+                /* --title1: #f57b51;
+                --title2: #6c5b7b;
+                --background1-alpha: #c06c84e0;
+                --background2-alpha: #f57b51e0;
+                --text: #355c7d; */
+            }
+
+            html {
+                font-family: 'VT323', serif;
+                width: 100%;
+                height: 100%;
+                text-align: justify;
+                background: radial-gradient(
+                        circle at center 100%,
+                        var(--background6) 0%,
+                        var(--background6) 30%,
+                        rgba(0, 0, 0, 0) 31%
+                    ), radial-gradient(
+                    circle at center bottom,
+                    var(--background7) 0%,
+                    var(--background6) 15%,
+                    var(--background5) 30%,
+                    var(--background4) 40%,
+                    var(--background3) 60%,
+                    var(--background2) 70%,
+                    var(--background1) 100%
+                );
+                background-color: black;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+                color: var(--text);
+                padding: 0 0 0 0;
+                margin: 0;
+            }
+
+            div#main {
+                margin: 100px auto 15px;
+                width: 500px;
+                background-color: var(--main-bg-rgba);
+                padding: 50px 50px 75px 50px;
+                box-shadow: 0 0 5px 2px var(--neon), /* outer cyan */
+                inset 0 0 5px 2px var(--neon); /* outer cyan */
+            }
+            
+            hr {
+                box-shadow: 0 0 10px 1px var(--neon);
+                border-color: var(--neon);
+            }
+
+            div.bar {
+                margin: 0 auto 15px;
+                width: 600px;
+                background-color: var(--neon);
+                box-shadow: 0 0 5px 2px var(--neon), /* outer cyan */
+                            inset 0 0 5px var(--neon); /* outer cyan */
+            }
+
+            div.bar-1 { height: 1px; margin-bottom: 100px; }
+            div.bar-2 { height: 4px; }
+            div.bar-3 { height: 8px; }
+            div.bar-4 { height: 12px; }
+
+            div#main h1 {
+                color: var(--title1);
+                text-shadow: 0px 0px 2px var(--title1);
+                font-size: 40px;
+            }
+
+            div#main h2 {
+                margin-top: -10px;
+                color: var(--title2);
+                text-shadow: 0px 0px 2px var(--title2);
+                font-size: 30px;
+            }
+            
+            div.category {
+                margin-top: 50px;
+            }
+            
+            div.category div.content {
+                margin-left: 25px;
+            }
+            
+            div.category h3 {
+                color: var(--title1);
+                line-height: 30px;
+                text-shadow: 0px 0px 2px var(--title1);
+                font-size: 25px;
+            }
+            
+            div.content h4 {
+                color: var(--title2);
+                text-shadow: 0px 0px 2px var(--title2);
+                font-size: 20px;
+                padding-right: 25px;
+            }
+
+            div#social ul {
+                padding: 0;
+                margin-top: 50px;
+                text-align: center;
+            }
+
+            div#social li {
+                display: inline;
+                padding: 5px;
+            }
+
+            div#social li a {
+                font-size: 1.4em;
+            }
+
+            div.content p {
+                margin-left: 25px;
+                font-family: 'VT323';
+                font-size: 1.2em;
+                padding-right: 50px;
+            }
+
+            .center {
+                text-align: center;
+            }
+
+            hr {
+                width: 300px;
+                margin: 50px auto;
+            }
+
+            i.fa-square {
+                font-size: 0.3em;
+                padding: 2px;
+            }
+
+            a {
+                color: var(--text);
+                transition: 0.2s;
+                text-align: left;
+            }
+
+            a:hover {
+                color: var(--blue);
+                text-shadow: 0px 0px 3px var(--blue);
+                text-align: left;
+            }
+
+            div#mountains {
+                margin: auto;
+                position: fixed;
+                width: 100%;
+                top: 84%;
+                left: 50%;
+                z-index: -1;
+                display: block;
+                color: var(--main-bg);
+                text-align: center;
+            }
+
+            .mountain-1 {
+                position: fixed;
+                float: left;
+                font-size: 1000px;
+                margin-top: -600px; 
+                margin-left: -300px; 
+                transform: scaleX(2);
+                text-shadow: 0px 0px 10px var(--main-bg);
+            }
+
+            .mountain-2 {
+                position: fixed;
+                float: left;
+                font-size: 500px;
+                margin-top: -200px; 
+                margin-left: -900px; 
+                transform: scaleX(2.5);
+                text-shadow: 0px 0px 10px var(--main-bg);
+            }
+
+            .mountain-3 {
+                position: fixed;
+                float: left;
+                font-size: 500px;
+                margin-top: -200px; 
+                margin-left: 200px; 
+                transform: scaleX(2.5);
+                text-shadow: 0px 0px 10px var(--main-bg);
+            }
+
+            .mountain-4 {
+                position: fixed;
+                float: left;
+                font-size: 500px;
+                margin-top: -250px; 
+                margin-left: 300px; 
+                transform: scaleX(1.5);
+                text-shadow: 0px 0px 10px var(--main-bg);
+            }
+
+            .mountain-5 {
+                position: fixed;
+                float: left;
+                font-size: 500px;
+                margin-top: -150px; 
+                margin-left: 600px; 
+                transform: scaleX(3);
+                text-shadow: 0px 0px 10px var(--main-bg);
+            }
+
+            .mountain-6 {
+                position: fixed;
+                float: left;
+                font-size: 500px;
+                margin-top: -125px; 
+                margin-left: -640px; 
+                transform: scaleX(3);
+                text-shadow: 0px 0px 10px var(--main-bg);
+            }
+
+            .stars.large {
+                top: 0;
+                height: 3px;
+                width: 3px;
+                background: transparent;
+                position: fixed;
+                z-index: -1;
+            }
+
+            .stars.medium {
+                top: 0;
+                height: 2px;
+                width: 2px;
+                background: transparent;
+                position: fixed;
+                z-index: -1;
+            }
+
+            .stars.small {
+                top: 0;
+                height: 1px;
+                width: 1px;
+                background: transparent;
+                position: fixed;
+                z-index: -1;
+            }
+            
+        </style>
+    </head>
+    <body>
+
+        <!-- Stars -->
+    	<div class="stars small"></div>
+    	<div class="stars medium"></div>
+        <div class="stars large"></div>
+
+        <!-- Mountains -->
+    	<div id="mountains">
+            <div class="mountain-1">▲</div>
+            <div class="mountain-2">▲</div>
+            <div class="mountain-3">▲</div>
+            <div class="mountain-4">▲</div>
+            <div class="mountain-5">▲</div>
+            <div class="mountain-6">▲</div>
+        </div>
+        
+        <!-- Main content div -->
+        <div id="main">
+            <!-- Titles -->
+            <h1 class="center">
+                Maxime&nbsp;&nbsp;<span style="color: var(--neon)">«</span>&nbsp;<span style="color: var(--text)">Lyte</span>&nbsp;<span style="color: var(--neon)">»</span>&nbsp;&nbsp;Peterlin
+            </h1>
+            <h2 class="center">Security Researcher</h2>
+            
+            <!-- Social & contacts -->
+            <div id="social">
+                <ul>
+                    <li><a class="twitter" href="https://twitter.com/lyte__"><i class="fa fa-twitter-square"></i></a></li>
+                    <li><a class="github" href="https://github.com/0xLyte"><i class="fa fa-github-square"></i></a></li>
+                    <li><a class="mail" href="mailto:lyte@lyte.rs"><i class="fa fa-envelope-square"></i></a></li>
+                    <li><a class="gpg" href=""><i class="fa fa-key"></i></a></li>
+                </ul>
+            </div>
+            
+            <!-- Projects -->
+            <div class="category">
+                <h3><i class="fa fa-square"></i> Projects</h3>
+                
+                <div class="content">
+                    <h4>CVE-2018-12386</h4>
+                    <p>
+                        Linux Firefox RCE Exploit for CVE-2018-12386. It does
+                        not include a sandbox escape and should work on Firefox
+                        versions prior to 62.0.3.<br/>
+                        <br/>
+                        <a href="https://github.com/0xlyte/CVE-2018-12386/">
+                            <i class="fa fa-chain"></i> Repository
+                        </a>
+                    </p>
+                </div>
+            </div>
+            
+            <hr/>
+
+            <!-- Publications -->
+            <div class="category">
+                <h3><i class="fa fa-square"></i> Publications</h3>
+
+                <div class="content">
+                    <h4>Black Hat USA 2019 - Breaking Samsung's ARM TrustZone</h4>
+                    <p>
+                        Using Samsung's TrustZone implementation as a target,
+                        this presentation explains and demonstrates how this
+                        new attack surface can be leveraged to hijack and
+                        exploit trusted components.<br/>
+                        After explaining the internals and interactions of these
+                        components developed by Samsung, different
+                        vulnerabilities are detailed and exploited to execute
+                        code at EL3, the highest privilege level on an ARM-based
+                        system.<br/>
+                        <br/>
+                        <a href="https://www.youtube.com/watch?v=uXH5LJGRwXI">
+                            <i class="fa fa-chain"></i> Video
+                        </a><br/>
+                        <a href="https://i.blackhat.com/USA-19/Thursday/us-19-Peterlin-Breaking-Samsungs-ARM-TrustZone.pdf">
+                            <i class="fa fa-chain"></i> Slides
+                        </a>
+                    </p>
+                </div>
+
+                <div class="content">
+                    <h4>Quarkslab - Security Audit of Particl's Bulletproof and MLSAG</h4>
+                    <p>
+                        Security assessment of the non-interactive
+                        zero-knowledge proof Bulletproof and the ring signature 
+                        protocol MLSAG implemented in the Particl cryptocurrency.<br/>
+                        These systems are used in cryptocurrency transactions to
+                        ensure that they do not leak the amount exchanged and
+                        the exact identity of the actors involved.<br/>
+                        <br/>
+                        <a href="https://blog.quarkslab.com/resources/2019-07-05-audit-particl-bulletproof-mlsag/particl_audit_report.pdf">
+                            <i class="fa fa-chain"></i> Report
+                        </a>
+                    </p>
+                </div>
+
+                <div class="content">
+                    <h4>MISC - CVE-2017-6862: How I Routed Your Router</h4>
+                    <p>
+                        Publication in the french security magazine MISC about a
+                        vulnerability found in a Netgear router that can be
+                        exploited to achieve code execution remotely.<br/>
+                        It presents a simple methodology to start looking for
+                        vulnerabilities in MIPS-based embedded devices (SOHO
+                        routers in particular) and exploit them.<br/>
+                        <br/>
+                        <a href="https://connect.ed-diamond.com/MISC/MISC-092/CVE-2017-6862-How-I-Rooted-Your-Router">
+                            <i class="fa fa-chain"></i> MISC
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bars -->
+        <div class="bar bar-4"></div>
+        <div class="bar bar-3"></div>
+        <div class="bar bar-2"></div>
+        <div class="bar bar-1"></div>
+
+    </body>
+</html>
